@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 
 var dummyData=["todo1", "todo2", "todo3"];
 
+
+
+
 class InputLine extends React.Component{
   constructor(props) {
     super(props);
@@ -10,7 +13,22 @@ class InputLine extends React.Component{
     }
   }
   render(){
-
+    return(
+      <div>
+        <form>
+            <input
+              type="text"
+              placeholder="Message Here"
+              // onChange={(e) => this.handleMessageChange(e)}
+              // value={this.state.message}
+            />
+            <input
+              type="submit"
+              value="Send"
+            />
+        </form>
+      </div>
+    )
   }
 }
 class Todo extends React.Component{
@@ -44,5 +62,20 @@ class TodoList extends React.Component{
     )
   }
 }
-ReactDOM.render(<TodoList />,
+class TodoApp extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+  render(){
+      return(
+        <div>
+          <InputLine />
+          <TodoList />
+        </div>
+      )
+  }
+}
+ReactDOM.render(<TodoApp />,
    document.getElementById('root'));
